@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 370" role="img" aria-labelledby="title">
+  <title id="title">A small friendly café</title>
+  <path d="M73 149h294v191H73z" fill="#fff" stroke="#2C201E" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M59 145 89 85h259l33 60z" fill="#F2AA80" stroke="#2C201E" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M73 145h294v30c0 19-27 26-38 9-12 18-44 18-56 0-12 18-43 18-54 0-12 18-43 18-55 0-12 18-42 18-53 0-13 18-38 10-38-9z" fill="#fff" stroke="#2C201E" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M111 145V91m53 54V91m55 54V91m54 54V91m56 54V91" stroke="#F2AA80" stroke-width="31"/>
+  <path d="M73 145h294v30c0 19-27 26-38 9-12 18-44 18-56 0-12 18-43 18-54 0-12 18-43 18-55 0-12 18-42 18-53 0-13 18-38 10-38-9z" fill="none" stroke="#2C201E" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="118" y="220" width="105" height="75" rx="7" fill="#DDEBD6" stroke="#2C201E" stroke-width="8"/>
+  <path d="m132 276 58-43m-34 50 47-35" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M266 341v-104c0-21 17-38 38-38s38 17 38 38v104" fill="#F2AA80" stroke="#2C201E" stroke-width="8"/>
+  <circle cx="324" cy="272" r="5" fill="#2C201E"/>
+  <rect x="151" y="32" width="138" height="58" rx="22" fill="#fff" stroke="#2C201E" stroke-width="8"/>
+  <path d="M200 51v12c0 8 6 14 14 14h12c8 0 14-6 14-14V51z" fill="#0749B2"/>
+  <path d="M240 55h6c10 0 10 16 0 16h-8" fill="none" stroke="#0749B2" stroke-width="5"/>
+</svg>

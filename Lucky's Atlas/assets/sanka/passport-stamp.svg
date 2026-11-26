@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 390" role="img" aria-labelledby="title">
+  <title id="title">A café passport and paw stamp</title>
+  <g stroke="#2C201E" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M65 60h255c16 0 28 12 28 28v245c0 16-12 28-28 28H65c-16 0-28-12-28-28V88c0-16 12-28 28-28z" fill="#fff"/>
+    <path d="M84 60v301" fill="none"/>
+    <path d="M126 119h149M126 151h108" fill="none" stroke="#DDEBD6" stroke-width="12"/>
+    <circle cx="217" cy="262" r="70" fill="#F2AA80"/>
+    <circle cx="181" cy="244" r="8" fill="#0749B2" stroke="none"/>
+    <circle cx="205" cy="226" r="8" fill="#0749B2" stroke="none"/>
+    <circle cx="232" cy="226" r="8" fill="#0749B2" stroke="none"/>
+    <circle cx="255" cy="244" r="8" fill="#0749B2" stroke="none"/>
+    <path d="M183 284c0-15 14-30 34-30s34 15 34 30c0 12-15 20-34 20s-34-8-34-20z" fill="#0749B2" stroke="none"/>
+  </g>
+</svg>

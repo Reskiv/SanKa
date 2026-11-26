@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff8ee">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob:; connect-src 'none'; font-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'self'">
+    <title>Home — SanKa</title>
+    <link rel="icon" href="/assets/sanka/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/src/styles/tokens.css">
+    <link rel="stylesheet" href="/src/styles/base.css">
+    <link rel="stylesheet" href="/src/styles/layout.css">
+    <link rel="stylesheet" href="/src/styles/components.css">
+    <link rel="stylesheet" href="/src/styles/pages.css">
+    <link rel="stylesheet" href="/src/styles/home-redesign.css">
+    <link rel="stylesheet" href="/src/styles/journey.css">
+    <link rel="stylesheet" href="/src/styles/discovery-journey.css">
+    <link rel="stylesheet" href="/src/styles/passport-journey.css">
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" data-route aria-label="SanKa home">San<span>Ka</span><i aria-hidden="true">✳</i></a>
+        <nav aria-label="Primary">
+          <ul class="primary-nav">
+            <li><a href="/" data-route data-nav="home">Home</a></li>
+            <li><a href="/user" data-route data-nav="user">Passport</a></li>
+            <li><a href="/cafes" data-route data-nav="cafes">Cafés</a></li>
+            <li><a href="/maps" data-route data-nav="maps">Map</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div id="app-outlet" class="page-shell" aria-busy="true">
+        <section aria-labelledby="loading-heading">
+          <h1 id="loading-heading" tabindex="-1">Loading SanKa</h1>
+          <p role="status">Loading your local passport…</p>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <p>SanKa — made for good coffee and curious days. Prototype data is stored only in this browser on this device. Cafes and map locations are fictional.</p>
+    </footer>
+    <div id="app-live-region" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+    <template id="sanka-home-template">
+<div class="sanka-home">
+<section class="hero grid-paper" aria-labelledby="hero-title">
+      <div class="hero-inner wrap">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR DIGITAL CAFÉ PASSPORT</p>
+          <h1 id="hero-title" tabindex="-1">Good coffee.<br><em>Great little</em><br>detours.</h1>
+          <p class="hero-intro">The cafés worth finding are closer than you think. Follow your curiosity, save the places you visit, and collect a little memory from each stop.</p>
+          <div class="hero-actions">
+            <a class="button button-blue" href="/cafes" data-route>Explore the adventure <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#how">See how it works <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-footnote"><span class="footnote-line"></span> For café goers, study days & spontaneous plans</div>
+        </div>
+        <div class="hero-art" data-reveal aria-label="The SanKa cup-cat exploring a café map" role="img">
+          <div class="hero-orbit" aria-hidden="true"></div>
+          <div class="hero-disc" aria-hidden="true"></div>
+          <svg class="hero-trail" viewBox="0 0 620 580" fill="none" aria-hidden="true"><path d="M72 454C142 425 107 324 183 295S310 357 357 266 429 171 530 116"/><circle cx="72" cy="454" r="8"/><circle cx="530" cy="116" r="9"/></svg>
+          <div class="hero-tiny-card hero-tiny-card-top" aria-hidden="true"><span class="tiny-card-icon">✦</span><span>THE NEXT STOP<br><b>IS YOURS</b></span></div>
+          <img class="hero-map" src="/assets/sanka/folded-map.svg" alt="" width="510" height="270">
+          <img class="hero-cat" src="/assets/sanka/coffee-cat.svg" alt="" width="420" height="410">
+          <div class="hero-tiny-card hero-tiny-card-bottom" aria-hidden="true"><span class="tiny-cup"><img src="/assets/sanka/cup-icon.svg" alt=""></span><span>Small stops.<br><b>Good stories.</b></span></div>
+          <div class="hero-caption" aria-hidden="true">MEET THE SANKA COFFEE CAT <span>↗</span></div>
+        </div>
+      </div>
+      <div class="hero-bottom wrap"><span>SCROLL TO WANDER</span><span class="scroll-arrow" aria-hidden="true">↓</span><span>01 / 05</span></div>
+    </section>
+
+    <div class="message-strip" aria-hidden="true"><div class="message-track"><span>✳</span> FOLLOW A GOOD CUP <span>→</span> FIND YOUR NEXT LITTLE STOP <span>✳</span></div></div>
+
+    <section class="how-section section-pad" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-heading" data-reveal>
+          <p class="section-kicker">01 / THE LITTLE JOURNEY</p>
+          <h2 id="how-title">Three steps to<br><span>your next favorite.</span></h2>
+          <p>From a curious thought to a café worth remembering.</p>
+        </div>
+        <svg class="steps-trail" data-reveal viewBox="0 0 1120 88" fill="none" aria-hidden="true"><path d="M90 45C220 10 323 83 470 45S753 7 900 45 1000 66 1030 45"/><circle cx="90" cy="45" r="8"/><circle cx="560" cy="35" r="8"/><circle cx="1030" cy="45" r="8"/></svg>
+        <div class="step-grid">
+          <article class="step-card" data-reveal>
+            <div class="step-art step-art-find">
+              <span class="art-orbit" aria-hidden="true"></span>
+              <img class="step-map" src="/assets/sanka/folded-map.svg" alt="" width="510" height="270">
+              <img class="step-cat" src="/assets/sanka/coffee-cat.svg" alt="" width="420" height="410">
+            </div>
+            <div class="step-meta"><span class="step-number">01</span><span class="step-rule"></span><span class="step-label">FIND</span></div>
+            <h3>Follow a good feeling.</h3>
+            <p>Browse local cafés and find a spot that fits your day.</p>
+          </article>
+          <article class="step-card" data-reveal>
+            <div class="step-art step-art-visit">
+              <span class="art-orbit" aria-hidden="true"></span>
+              <img class="step-shop" src="/assets/sanka/cafe-shop.svg" alt="" width="440" height="370">
+              <img class="step-cat" src="/assets/sanka/coffee-cat.svg" alt="" width="420" height="410">
+            </div>
+            <div class="step-meta"><span class="step-number">02</span><span class="step-rule"></span><span class="step-label">VISIT</span></div>
+            <h3>Make a little stop.</h3>
+            <p>Go for the coffee, the company, or a quiet corner to call your own.</p>
+          </article>
+          <article class="step-card" data-reveal>
+            <div class="step-art step-art-stamp">
+              <span class="art-orbit" aria-hidden="true"></span>
+              <img class="step-passport" src="/assets/sanka/passport-stamp.svg" alt="" width="390" height="390">
+              <img class="step-cat" src="/assets/sanka/coffee-cat.svg" alt="" width="420" height="410">
+              <span class="stamp-burst" aria-hidden="true">✳</span>
+            </div>
+            <div class="step-meta"><span class="step-number">03</span><span class="step-rule"></span><span class="step-label">STAMP</span></div>
+            <h3>Keep the moment.</h3>
+            <p>Review your visit and add a decorative stamp to your passport.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trail-section section-pad" id="choose" aria-labelledby="trail-title">
+      <div class="wrap trail-inner">
+        <div class="trail-intro" data-reveal>
+          <p class="section-kicker">02 / PICK A DIRECTION</p>
+          <h2 id="trail-title">What does today<br><span>feel like?</span></h2>
+          <p>Start with a mood. We’ll help you find a café that feels right for it.</p>
+        </div>
+        <div class="trail-board" data-reveal>
+          <div class="trail-board-top"><span>YOUR NEXT LITTLE DETOUR</span><span>CHOOSE A ROUTE ↗</span></div>
+          <svg class="mood-trail" viewBox="0 0 900 140" fill="none" aria-hidden="true"><path d="M42 89C143 20 206 112 324 70S500 34 591 77 718 118 856 47"/><circle cx="42" cy="89" r="8"/><circle cx="856" cy="47" r="8"/></svg>
+          <div class="trail-options">
+            <a href="/cafes?vibe=quiet" data-route class="trail-option"><span class="trail-option-no">01 / FIND FOCUS</span><strong>Quiet corners</strong><span>A little room for big thoughts.</span><b aria-hidden="true">↗</b></a>
+            <a href="/cafes?vibe=social" data-route class="trail-option"><span class="trail-option-no">02 / FIND COMPANY</span><strong>Catch-up tables</strong><span>Good coffee tastes better together.</span><b aria-hidden="true">↗</b></a>
+            <a href="/cafes?vibe=outdoorsy" data-route class="trail-option"><span class="trail-option-no">03 / FIND AIR</span><strong>Fresh-air stops</strong><span>Take the scenic route to a cup.</span><b aria-hidden="true">↗</b></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="purpose-section section-pad" id="vision" aria-labelledby="purpose-title">
+      <div class="wrap purpose-inner">
+        <div class="purpose-heading" data-reveal>
+          <p class="section-kicker">03 / WHAT GUIDES US</p>
+          <h2 id="purpose-title">There’s more<br>to a cup <span>than coffee.</span></h2>
+          <p>Every café is a little place for connection, discovery, and a story that stays with you.</p>
+          <div class="purpose-doodle" aria-hidden="true"><span>✳</span><span class="doodle-line"></span><img src="/assets/sanka/cup-icon.svg" alt=""></div>
+        </div>
+        <div class="purpose-cards">
+          <article class="purpose-card vision-card" data-reveal>
+            <div class="purpose-card-top"><span>01</span><span>OUR VISION</span><span aria-hidden="true">↗</span></div>
+            <div class="purpose-icon" aria-hidden="true">✳</div>
+            <h3>A city where every good café gets found.</h3>
+            <p>We imagine local cafés becoming the places people remember, return to, and share.</p>
+          </article>
+          <article class="purpose-card mission-card" data-reveal>
+            <div class="purpose-card-top"><span>02</span><span>OUR MISSION</span><span aria-hidden="true">↗</span></div>
+            <div class="purpose-icon purpose-icon-cup" aria-hidden="true"><img src="/assets/sanka/cup-icon.svg" alt=""></div>
+            <h3>Make exploring feel personal and playful.</h3>
+            <p>SanKa helps you discover cafés, remember your visits, and collect the moments along the way.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section section-pad" id="about" aria-labelledby="about-title">
+      <div class="wrap about-inner">
+        <div class="about-visual" data-reveal aria-hidden="true">
+          <div class="about-blob"></div>
+          <div class="about-passport"><span class="passport-title">SanKa<br><small>CAFÉ PASSPORT</small></span><span class="passport-mark">✳</span><span class="passport-bottom">A LITTLE BOOK OF GOOD PLACES</span></div>
+          <img src="/assets/sanka/coffee-cat.svg" alt="" width="420" height="410">
+          <span class="about-sticker">TAKE THE<br>SCENIC ROUTE <b>↗</b></span>
+        </div>
+        <div class="about-copy" data-reveal>
+          <p class="section-kicker">04 / ABOUT SANKA</p>
+          <h2 id="about-title">Made for the<br><em>“let’s try somewhere new”</em><br>kind of day.</h2>
+          <p>SanKa is a small invitation to look around. Find a neighborhood café, settle in for a while, then keep the memory in your digital passport.</p>
+          <p>Our coffee cat is part café cup, part curious companion. Wherever you wander, it’s ready to find the next good stop with you.</p>
+          <a class="button button-light" href="/cafes" data-route>Ready for a café day? <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section grid-paper" id="start" aria-labelledby="closing-title">
+      <div class="wrap closing-inner" data-reveal>
+        <p class="section-kicker">05 / YOUR TURN</p>
+        <h2 id="closing-title">Where to<br><em>next?</em></h2>
+        <p>For study breaks, catch-ups, and the kind of coffee stop that turns into a favorite. Your next little adventure starts at a café.</p>
+        <div class="closing-actions"><a class="button button-blue" href="/cafes" data-route>Find a café <span aria-hidden="true">↗</span></a><a class="text-link" href="/user" data-route>Open your passport <span aria-hidden="true">↗</span></a></div>
+        <div class="closing-cat" aria-hidden="true"><img src="/assets/sanka/coffee-cat.svg" alt="" width="420" height="410"></div>
+      </div>
+    </section>
+</div>
+    </template>
+  </body>
+</html>

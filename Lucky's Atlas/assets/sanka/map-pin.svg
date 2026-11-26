@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 100" role="img" aria-labelledby="title">
+  <title id="title">SanKa café map pin</title>
+  <path d="M40 3C19 3 3 19 3 40c0 28 37 56 37 56s37-28 37-56C77 19 61 3 40 3Z" fill="#0749B2"/>
+  <path d="M22 36 26 24l8 6h12l8-6 4 12v10c0 11-8 19-18 19s-18-8-18-19Z" fill="#fff"/>
+  <path d="M22 39c10 6 26 6 36 0v-4l-4-11-8 6H34l-8-6-4 11Z" fill="#865b49"/>
+  <path d="M22 39c10 6 26 6 36 0" fill="none" stroke="#2C201E" stroke-width="5"/>
+  <circle cx="32" cy="49" r="3" fill="#2C201E"/><circle cx="48" cy="49" r="3" fill="#2C201E"/>
+  <path d="m37 56 3 3 3-3Z" fill="#2C201E"/>
+</svg>

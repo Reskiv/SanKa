@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 410" role="img" aria-labelledby="title desc">
+  <title id="title">SanKa coffee cat</title>
+  <desc id="desc">A short white cup shaped cat with a coffee brown head, round eyes, little feet, and a mug handle.</desc>
+  <g stroke="#2C201E" stroke-linejoin="round" stroke-linecap="round">
+    <!-- The handle sits behind the cup silhouette. -->
+    <path d="M310 174h28c37 0 58 23 58 57s-23 58-58 58h-32v-24h31c21 0 34-13 34-34s-13-33-34-33h-27z" fill="#fff" stroke-width="11"/>
+    <!-- Short feet are part of the same white cup body. -->
+    <path d="M68 167c0-28 19-43 46-43h187c29 0 48 16 48 44v96c0 53-23 84-59 94v8c0 19-12 29-29 29-16 0-29-10-30-27h-55c-1 17-13 27-30 27-18 0-30-11-30-30v-10c-31-14-48-45-48-92z" fill="#fff" stroke-width="11"/>
+    <!-- Ears merge directly into the coffee top without an ear outline. -->
+    <path d="M69 171c1-29 12-49 30-58l16-49c3-9 12-12 19-4l35 39c27-5 57-5 82 0l35-39c7-8 16-5 19 4l16 49c18 10 28 30 28 58-43 26-98 35-140 35-49 0-101-10-140-35z" fill="#865b49" stroke="none"/>
+    <!-- Curved espresso rim reads as the opening of a mug. -->
+    <path d="M69 171c77 46 204 46 280 0v28c-76 43-203 43-280 0z" fill="#2C201E" stroke="none"/>
+    <path d="M69 171c77 46 204 46 280 0" fill="none" stroke-width="7"/>
+  </g>
+  <ellipse cx="153" cy="258" rx="17" ry="21" fill="#2C201E"/>
+  <ellipse cx="262" cy="258" rx="17" ry="21" fill="#2C201E"/>
+  <ellipse cx="147" cy="251" rx="6" ry="7" fill="#fff"/>
+  <ellipse cx="256" cy="251" rx="6" ry="7" fill="#fff"/>
+  <path d="M191 296c0-5 4-8 9-8h16c6 0 10 3 10 8l-18 18z" fill="#2C201E"/>
+</svg>
