@@ -1,0 +1,17 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+.DS_Store
+
+# Local previews, unrelated sample project and machine-specific migration notes
+tmp/
+cpp-blue-circle-game/
+MIGRATION.md
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key

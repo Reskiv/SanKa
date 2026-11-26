@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none">
+  <defs>
+    <pattern id="hero-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="5" r="2.5" fill="#342720" opacity="0.13"/>
+    </pattern>
+    <clipPath id="map-window">
+      <path d="M291 304 392 279l87 21 91-34 22 151-103 35-87-23-91 29-20-154Z"/>
+    </clipPath>
+  </defs>
+
+  <path d="M94 320C64 238 95 128 183 82c94-49 170-5 219 7 67 17 127-30 204 0 88 35 123 135 94 222-25 75-78 102-96 166H151c-5-59-34-105-57-157Z" fill="#91B3C3"/>
+  <path d="M113 335c-22-72 0-158 61-210" stroke="#FFF8EE" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+  <path d="M612 118c42 35 63 84 61 135" stroke="#FFF8EE" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+  <path d="M128 156c30-27 67-44 106-48M588 413c38-18 68-50 83-87" stroke="#342720" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 18" opacity="0.24"/>
+
+  <ellipse cx="405" cy="477" rx="293" ry="47" fill="#F2E1CC" stroke="#342720" stroke-width="10"/>
+  <ellipse cx="405" cy="468" rx="246" ry="25" fill="url(#hero-dots)"/>
+  <path d="M207 459c29 11 56 14 86 15M520 474c28-2 55-8 79-17" stroke="#755044" stroke-width="7" stroke-linecap="round" opacity="0.5"/>
+
+  <path d="M255 352c-51 19-74 65-62 102 13 41 55 49 89 30 34-19 36-63 16-85-19-21-49-15-57 6-7 19 8 35 28 31" fill="#E9A45D" stroke="#342720" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M318 244c-42 18-70 65-66 120 4 62 48 111 113 118 68 7 128-29 144-90 14-53-7-112-52-142-39-26-95-29-139-6Z" fill="#755044" stroke="#342720" stroke-width="10" stroke-linejoin="round"/>
+  <path d="m309 160 14 65 71-38 67 37 18-64 49 85c13 42-3 91-39 118-53 39-138 37-187-8-32-30-41-76-21-115l28-80Z" fill="#E9A45D" stroke="#342720" stroke-width="10" stroke-linejoin="round"/>
+  <path d="m317 183 10 35 31-17-41-18Zm151 2-8 34-31-18 39-16Z" fill="#D96673"/>
+  <path d="M349 277c0-13 11-23 24-23h44c14 0 25 11 25 24 0 28-22 48-47 48-26 0-46-21-46-49Z" fill="#FFF8EE"/>
+  <ellipse cx="351" cy="255" rx="9" ry="12" fill="#342720"/>
+  <ellipse cx="444" cy="255" rx="9" ry="12" fill="#342720"/>
+  <path d="m395 280-9-7h18l-9 7Zm0 1v12m0 0c-9 0-14 4-18 10m18-10c9 0 14 4 18 10" stroke="#342720" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M337 286 286 274m52 28-55 4m171-20 51-12m-51 28 55 4" stroke="#342720" stroke-width="6" stroke-linecap="round"/>
+  <path d="M333 342c-19 12-29 29-31 50m155-50c20 12 30 29 32 50" stroke="#342720" stroke-width="9" stroke-linecap="round"/>
+
+  <path d="M291 304 392 279l87 21 91-34 22 151-103 35-87-23-91 29-20-154Z" fill="#FFF8EE" stroke="#342720" stroke-width="10" stroke-linejoin="round"/>
+  <g clip-path="url(#map-window)">
+    <path d="m397 278 7 151m74-128 11 150" stroke="#F2E1CC" stroke-width="8"/>
+    <path d="M315 418c39-60 73-36 110-58 37-22 40-54 90-47 27 4 45 23 56 51" stroke="#607255" stroke-width="8" stroke-linecap="round" stroke-dasharray="5 17"/>
+    <path d="M327 335c27-14 45-11 67 4m89 59c29 6 52-1 77-20" stroke="#91B3C3" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="344" cy="402" r="11" fill="#D96673" stroke="#342720" stroke-width="5"/>
+    <path d="M344 413c-10-10-15-18-15-26 0-9 7-16 15-16 9 0 16 7 16 16 0 8-6 16-16 26Z" fill="#D96673" stroke="#342720" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M526 329v35m-18-17h36" stroke="#342720" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="526" cy="347" r="25" stroke="#342720" stroke-width="4"/>
+  </g>
+
+  <path d="M284 330c-21 4-32 21-28 39 4 17 22 26 41 20l17-6-7-58-23 5Zm294-10c22 1 36 17 34 35-1 18-18 29-38 26l-18-3 1-58h21Z" fill="#E9A45D" stroke="#342720" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M214 118c0-17 14-31 31-31s31 14 31 31-14 31-31 31-31-14-31-31Z" fill="#FFF8EE" stroke="#342720" stroke-width="8"/>
+  <path d="M245 100v36m-18-18h36" stroke="#607255" stroke-width="7" stroke-linecap="round"/>
+  <path d="m590 172 10 21 23 3-17 16 4 23-20-11-21 11 4-23-17-16 24-3 10-21Z" fill="#D96673" stroke="#342720" stroke-width="7" stroke-linejoin="round"/>
+</svg>
+

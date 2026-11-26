@@ -1,0 +1,205 @@
+export const AMENITIES = [
+  { key: "wifi", label: "Wi-Fi", icon: "wifi" },
+  { key: "sockets", label: "Power sockets", icon: "plug" },
+  { key: "quiet", label: "Quiet zone", icon: "moon" },
+  { key: "study", label: "Study tables", icon: "book" },
+  { key: "outdoor", label: "Outdoor seats", icon: "trees" },
+  { key: "pets", label: "Pet friendly", icon: "paw" },
+  { key: "aircon", label: "Air conditioning", icon: "snow" },
+  { key: "latenight", label: "Open late", icon: "clock" },
+  { key: "brunch", label: "Brunch", icon: "croissant" },
+  { key: "vegan", label: "Vegan options", icon: "leaf" },
+  { key: "parking", label: "Parking", icon: "car" },
+  { key: "accessible", label: "Step-free access", icon: "access" },
+  { key: "games", label: "Board games", icon: "dice" },
+  { key: "refill", label: "Water refill", icon: "droplet" },
+];
+
+export const AMENITY_MAP = Object.fromEntries(AMENITIES.map((a) => [a.key, a]));
+
+export const AREAS = {
+  north: "North quarter",
+  garden: "Garden quarter",
+  riverside: "Riverside",
+  oldtown: "Old town",
+};
+
+export const VIBES = {
+  quiet: "Quiet",
+  study: "Study",
+  bookish: "Bookish",
+  cozy: "Cozy",
+  bright: "Bright",
+  social: "Social",
+  outdoorsy: "Outdoorsy",
+  late: "Open late",
+};
+
+export const PRICES = { $: "Budget", $$: "Moderate", $$$: "Special occasion" };
+
+export const CAFES = [
+  {
+    id: "moonbeam-nook",
+    name: "Moonbeam Nook",
+    summary: "A hushed reading room with cocoa-toned corners and lamplight.",
+    feature: "A no-phone corner with the softest armchairs in the quarter.",
+    description:
+      "Deep armchairs, a shelf of borrowed paperbacks and a no-phone corner. The kind of room that makes an afternoon disappear in the best way.",
+    price: "$$",
+    area: "north",
+    vibes: ["quiet", "bookish", "cozy"],
+    amenities: ["wifi", "sockets", "quiet", "study", "aircon", "refill"],
+    motif: "book",
+    offset: { lat: 0.0042, lng: -0.0058 },
+    owner: { name: "Owner name", role: "Owner & head barista" },
+    hours: "Hours to be added",
+    phone: "Phone to be added",
+    email: "Email to be added",
+    address: "Address to be added",
+  },
+  {
+    id: "apricot-table",
+    name: "The Apricot Table",
+    summary: "One long sunny table built for cheerful catch-ups.",
+    feature: "One shared table, so a solo coffee never stays solo.",
+    description:
+      "A bright room wrapped around a single shared table. Trays of apricot buns, a window full of afternoon light, and always one seat left for a stranger.",
+    price: "$",
+    area: "garden",
+    vibes: ["bright", "social", "cozy"],
+    amenities: ["wifi", "aircon", "brunch", "outdoor", "accessible", "refill"],
+    motif: "table",
+    offset: { lat: 0.0061, lng: 0.0024 },
+    owner: { name: "Owner name", role: "Owner & baker" },
+    hours: "Hours to be added",
+    phone: "Phone to be added",
+    email: "Email to be added",
+    address: "Address to be added",
+  },
+  {
+    id: "moss-and-mug",
+    name: "Moss & Mug",
+    summary: "A leafy hideaway with a sheltered garden table.",
+    feature: "A fern-shaded patio that stays cool all afternoon.",
+    description:
+      "Ferns, mismatched cups and a patio that stays cool all afternoon. Dogs are welcome, laptops are optional, and the moss does most of the decorating.",
+    price: "$$",
+    area: "garden",
+    vibes: ["outdoorsy", "quiet", "cozy"],
+    amenities: ["wifi", "sockets", "outdoor", "pets", "vegan", "refill"],
+    motif: "leaf",
+    offset: { lat: -0.0034, lng: 0.0068 },
+    owner: { name: "Owner name", role: "Owner & gardener" },
+    hours: "Hours to be added",
+    phone: "Phone to be added",
+    email: "Email to be added",
+    address: "Address to be added",
+  },
+  {
+    id: "paper-boat-coffee",
+    name: "Paper Boat Coffee",
+    summary: "A breezy counter for quick cups and window seats.",
+    feature: "Window stools facing the street, made for a ten-minute pause.",
+    description:
+      "Folded-paper lamps, bright stools facing the street and a queue that moves fast. Best for a ten-minute pause between errands.",
+    price: "$",
+    area: "riverside",
+    vibes: ["bright", "social"],
+    amenities: ["wifi", "aircon", "brunch", "accessible", "refill"],
+    motif: "river",
+    offset: { lat: -0.0062, lng: -0.0019 },
+    owner: { name: "Owner name", role: "Owner & roaster" },
+    hours: "Hours to be added",
+    phone: "Phone to be added",
+    email: "Email to be added",
+    address: "Address to be added",
+  },
+  {
+    id: "cocoa-compass",
+    name: "Cocoa Compass",
+    summary: "Warm booths built for notebooks and slow plans.",
+    feature: "Board games and booths that stay open past your bedtime.",
+    description:
+      "Deep cocoa walls, soft booths and a shelf of board games. It stays open late enough to finish the chapter you promised yourself.",
+    price: "$$$",
+    area: "north",
+    vibes: ["bookish", "cozy", "late"],
+    amenities: ["wifi", "sockets", "aircon", "latenight", "study", "games"],
+    motif: "compass",
+    offset: { lat: 0.0018, lng: 0.0081 },
+    owner: { name: "Owner name", role: "Owner & host" },
+    hours: "Hours to be added",
+    phone: "Phone to be added",
+    email: "Email to be added",
+    address: "Address to be added",
+  },
+  {
+    id: "driftwood-kettle",
+    name: "Driftwood Kettle",
+    summary: "An airy stop with generous window light and long benches.",
+    feature: "Benches that keep growing with whoever you bring.",
+    description:
+      "Driftwood tables, a kettle shelf and windows that catch the whole afternoon. Good for groups that keep growing.",
+    price: "$$$",
+    area: "riverside",
+    vibes: ["outdoorsy", "bright", "social"],
+    amenities: ["sockets", "aircon", "outdoor", "parking", "brunch", "accessible"],
+    motif: "kettle",
+    offset: { lat: -0.0012, lng: -0.0086 },
+    owner: { name: "Owner name", role: "Owner & coffee lead" },
+    hours: "Hours to be added",
+    phone: "Phone to be added",
+    email: "Email to be added",
+    address: "Address to be added",
+  },
+  {
+    id: "lantern-and-loaf",
+    name: "Lantern & Loaf",
+    summary: "A tiny old-town room that glows after dark.",
+    feature: "Bread out of the oven twice a day, and a barista who remembers you.",
+    description:
+      "Six tables, paper lanterns and bread pulled from the oven twice a day. Small enough that the barista remembers your order on the second visit.",
+    price: "$$",
+    area: "oldtown",
+    vibes: ["cozy", "bookish", "late"],
+    amenities: ["wifi", "sockets", "latenight", "vegan", "study", "refill"],
+    motif: "lantern",
+    offset: { lat: 0.0073, lng: -0.0072 },
+    owner: { name: "Owner name", role: "Owner & baker" },
+    hours: "Hours to be added",
+    phone: "Phone to be added",
+    email: "Email to be added",
+    address: "Address to be added",
+  },
+  {
+    id: "quiet-hours",
+    name: "Quiet Hours",
+    summary: "Study-first seating, plugs at every table and soft light.",
+    feature: "A whisper rule after noon and a plug within reach of every seat.",
+    description:
+      "Built for the long haul: wide desks, sockets within reach, a whisper rule after noon and bottomless refills. Remote work feels welcome here.",
+    price: "$",
+    area: "oldtown",
+    vibes: ["quiet", "study", "cozy"],
+    amenities: ["wifi", "sockets", "quiet", "study", "accessible", "refill", "aircon"],
+    motif: "lamp",
+    offset: { lat: 0.0051, lng: 0.0047 },
+    owner: { name: "Owner name", role: "Owner & host" },
+    hours: "Hours to be added",
+    phone: "Phone to be added",
+    email: "Email to be added",
+    address: "Address to be added",
+  },
+];
+
+export const CAFE_IDS = CAFES.map((cafe) => cafe.id);
+
+export function findCafe(id) {
+  return CAFES.find((cafe) => cafe.id === id);
+}
+
+export const FILTER_GROUPS = [
+  { key: "price", label: "Price", options: Object.keys(PRICES), labels: PRICES },
+  { key: "area", label: "Area", options: Object.keys(AREAS), labels: AREAS },
+  { key: "vibe", label: "Vibe", options: Object.keys(VIBES), labels: VIBES },
+];

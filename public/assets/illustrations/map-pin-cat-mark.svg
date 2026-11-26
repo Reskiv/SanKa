@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" fill="none">
+  <defs>
+    <pattern id="pin-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="2" fill="#342720" opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <path d="M120 22c-55 0-98 42-98 97 0 72 70 132 98 163 28-31 98-91 98-163 0-55-43-97-98-97Z" fill="#D96673" stroke="#342720" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M120 38c-44 0-80 35-80 79 0 55 50 104 80 139 30-35 80-84 80-139 0-44-36-79-80-79Z" fill="url(#pin-dots)"/>
+  <circle cx="120" cy="116" r="67" fill="#FFF8EE" stroke="#342720" stroke-width="8"/>
+
+  <path d="m73 106 13-43 35 25 35-25 13 43c13 19 9 47-8 64-22 22-59 24-83 4-22-18-27-48-12-68h7Z" fill="#E9A45D" stroke="#342720" stroke-width="7" stroke-linejoin="round"/>
+  <path d="m87 78 5 23 16-12-21-11Zm69 0-5 23-16-12 21-11Z" fill="#91B3C3"/>
+  <ellipse cx="98" cy="121" rx="6" ry="8" fill="#342720"/>
+  <ellipse cx="143" cy="121" rx="6" ry="8" fill="#342720"/>
+  <path d="m121 137-7-5h14l-7 5Zm0 1v9m0 0c-7 0-10 3-13 7m13-7c7 0 10 3 13 7" stroke="#342720" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m92 140-24-4m26 17-23 6m79-19 24-4m-26 17 23 6" stroke="#342720" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="120" cy="244" r="7" fill="#342720"/>
+</svg>
+
