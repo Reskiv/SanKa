@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Coffee, Plus } from "lucide-react";
 import Photo from "@/components/common/Photo";
-import { formatEntryDate, sortCoffees } from "@/lib/passport";
+import { formatEntryDate, formatMoney, sortCoffees } from "@/lib/passport";
 
 const WEEKDAYS = ["M", "T", "W", "T", "F", "S", "S"];
 const pad = (value) => `${value}`.padStart(2, "0");
@@ -172,7 +172,12 @@ export default function CoffeeCalendar({ entries, onEdit, onAdd }) {
                       onClick={() => onEdit(entry)}
                       className="block w-full rounded-[16px] border border-cocoa/10 bg-cream/50 p-3 text-left transition-colors hover:border-caramel/50 hover:bg-cream active:scale-[0.99]"
                     >
-                      <span className="block font-heading text-[15px] font-bold text-cocoa">{entry.drink}</span>
+                      <span className="flex items-baseline justify-between gap-2">
+                        <span className="block font-heading text-[15px] font-bold text-cocoa">{entry.drink}</span>
+                        {entry.price > 0 && (
+                          <span className="shrink-0 text-[11.5px] font-bold text-cocoa/55">{formatMoney(entry.price, entry.currency)}</span>
+                        )}
+                      </span>
                       <span className="block text-[12px] font-semibold text-cocoa/50">{entry.cafe || "Home brew"}</span>
                       {entry.notes && <span className="mt-1 line-clamp-2 block text-[13px] leading-snug text-cocoa/65">{entry.notes}</span>}
                     </button>

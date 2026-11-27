@@ -1,10 +1,21 @@
 import { useEffect, useState } from "react";
 import { clearLocalPhotos, readPhoto } from "./local-photos.js";
-export { MAX_BYTES, MAX_PHOTOS, PHOTO_ACCEPT, photoError, uploadPhoto } from "./local-photos.js";
+export {
+  MAX_BYTES,
+  MAX_PHOTOS,
+  MAX_PHOTO_TOTAL_BYTES,
+  PHOTO_ACCEPT,
+  photoError,
+  photoStats,
+  readPhotosAsDataUrls,
+  restorePhotos,
+  uploadPhoto,
+} from "./local-photos.js";
 
 const cache = new Map();
 const pending = new Map();
 let generation = 0;
+const subscribers = new Set();
 const publicPhoto = (uri) => typeof uri === "string" && /^https?:\/\//.test(uri);
 
 export function cachedPhotoUrl(uri) {
@@ -36,7 +47,23 @@ export async function resetPhotos() {
   pending.clear();
 }
 
+/* Imported photos keep their original URI, so cached object URLs from before an
+   import must be dropped. */
+export function invalidatePhotoCache() {
+  generation += 1;
+  cache.forEach((url) => URL.revokeObjectURL(url));
+  cache.clear();
+  pending.clear();
+  subscribers.forEach((refresh) => refresh());
+}
+
 export function usePhotoUrl(uri) {
+  const [revision, setRevision] = useState(0);
+  useEffect(() => {
+    const refresh = () => setRevision((value) => value + 1);
+    subscribers.add(refresh);
+    return () => subscribers.delete(refresh);
+  }, []);
   const [state, setState] = useState({ uri: null, url: null, loading: false, failed: false });
   useEffect(() => {
     let alive = true;
@@ -52,6 +79,6 @@ export function usePhotoUrl(uri) {
       if (alive) setState({ uri, url: null, loading: false, failed: true });
     });
     return () => { alive = false; };
-  }, [uri]);
+  }, [uri, revision]);
   return state.uri === uri ? state : { uri, url: cachedPhotoUrl(uri), loading: Boolean(uri), failed: false };
 }

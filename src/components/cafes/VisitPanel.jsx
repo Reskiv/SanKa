@@ -5,6 +5,8 @@ import { toast } from "sonner";
 import Photo from "@/components/common/Photo";
 import PhotoPicker from "@/components/common/PhotoPicker";
 import PhotoViewer from "@/components/common/PhotoViewer";
+import SaveCafeButtons from "@/components/cafes/SaveCafeButtons";
+import ShareCafeButton from "@/components/cafes/ShareCafeButton";
 import { usePassport } from "@/lib/passport";
 
 export default function VisitPanel({ cafe }) {
@@ -43,6 +45,11 @@ export default function VisitPanel({ cafe }) {
   return (
     <aside className="card p-4 sm:p-5">
       <p className="eyebrow">Your visit</p>
+
+      <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+        {ready && passport && <SaveCafeButtons cafe={cafe} variant="panel" />}
+        <ShareCafeButton cafe={cafe} variant="panel" />
+      </div>
 
       {!ready && <p className="mt-3 text-[14px] text-cocoa/55">Checking your passport…</p>}
 

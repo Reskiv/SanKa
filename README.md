@@ -1,10 +1,10 @@
-# Lucky’s Atlas / SanKa
+# SanKa
 
 The latest SanKa design, café directory, map, browser-local passport, photo attachments and coffee journal run as a standalone React application. No Base44 login, Cloudflare Worker, or backend is required for these features.
 
 ## Run in VS Code
 
-1. Open this **Lucky’s Atlas** folder in VS Code.
+1. Open the **SanKa** folder in VS Code.
 2. Use Node.js 22.12 or newer. In the terminal, run `npm install` (or `npm ci` when the lockfile is present).
 3. Run `npm run dev`.
 4. Open http://127.0.0.1:8080. Keep the terminal running.
@@ -33,6 +33,12 @@ The local photo store replaces the export’s Base44 private-file dependency. Pr
 
 The café listings and contact details are illustrative placeholders from the supplied design. Passport names, avatars, visits, reviews, stamps and coffee journal entries stay in this browser. Photos are stored as blobs in IndexedDB; the passport stores only references, so images do not fill localStorage. The map uses external Esri tiles; the fonts use Google Fonts. These resources require internet access. Location permission is optional; denying it keeps the default map centre.
 
-An existing Lucky’s Atlas passport is migrated once from `luckys-atlas:state:v1` when the app is opened on the **same browser origin** (scheme, hostname and port). The original storage entry is retained as a backup. Old city, owner contact and revisit details are retained in migration metadata; the new UI exposes the new export’s passport fields. Browsers treat `localhost` and `127.0.0.1`, and different ports, as separate storage. Use the old hostname and port if you need existing browser data, for example `npm run dev -- --host localhost --port 4173`.
+An existing legacy passport is migrated once from `luckys-atlas:state:v1` when the app is opened on the **same browser origin** (scheme, hostname and port). The original storage entry is retained as a backup. Old city, owner contact and revisit details are retained in migration metadata; the new UI exposes the new export’s passport fields. Browsers treat `localhost` and `127.0.0.1`, and different ports, as separate storage. Use the old hostname and port if you need existing browser data, for example `npm run dev -- --host localhost --port 4173`.
 
 The repository contains the current app at its root. The earlier nested `Lucky’s Atlas` folder remains recoverable through Git history. The docs describe the earlier prototype; this README describes the current app. Local backups and migration notes are retained separately.
+
+## Latest features
+
+Save cafés to Favorites or Want to visit, share café links, record coffee prices and currencies, and view spending totals without currency conversion. Data & privacy on the Passport page exports or imports a JSON backup with local photos. Privacy, Terms and Data declaration pages describe the prototype and identify missing operator details.
+
+Run `npm run scan:secrets` to scan Git-tracked source for credential patterns.

@@ -2,6 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import CatMascot from "@/components/brand/CatMascot";
 import { AmenityList } from "@/components/cafes/AmenityTag";
+import SaveCafeButtons from "@/components/cafes/SaveCafeButtons";
+import ShareCafeButton from "@/components/cafes/ShareCafeButton";
+import { ListingBadge } from "@/components/cafes/ListingVerification";
 import { AREAS, PRICES } from "@/data/cafes";
 
 export default function CafeCard({ cafe }) {
@@ -34,15 +37,26 @@ export default function CafeCard({ cafe }) {
         </p>
         <p className="mt-2 text-[13.5px] leading-relaxed text-cocoa/70">{cafe.summary}</p>
         <AmenityList amenities={cafe.amenities} limit={3} className="mt-3" />
-        <Link
-          to="/cafes/$cafeId"
-          params={{ cafeId: cafe.id }}
-          className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-bold text-cocoa"
-        >
-          <span className="border-b-2 border-cocoa/20 pb-0.5 transition-colors group-hover:border-caramel">View café</span>
-          <span aria-hidden="true">→</span>
-        </Link>
-        <span className="sr-only">{PRICES[cafe.price]}</span>
+
+        <div className="mt-3 flex items-center justify-between gap-2">
+          <Link
+            to="/cafes/$cafeId"
+            params={{ cafeId: cafe.id }}
+            className="inline-flex items-center gap-1.5 text-[13px] font-bold text-cocoa"
+          >
+            <span className="border-b-2 border-cocoa/20 pb-0.5 transition-colors group-hover:border-caramel">View café</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          <div className="flex items-center gap-1.5">
+            <SaveCafeButtons cafe={cafe} />
+            <ShareCafeButton cafe={cafe} />
+          </div>
+        </div>
+
+        <div className="mt-2.5 flex items-center justify-between gap-2 border-t border-cocoa/10 pt-2">
+          <ListingBadge />
+          <span className="sr-only">{PRICES[cafe.price]}</span>
+        </div>
       </div>
     </article>
   );

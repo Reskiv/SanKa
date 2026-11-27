@@ -4,6 +4,9 @@ import { ArrowLeft, Clock, MapPin, Mail, Phone, Heart, Info, Palette } from "luc
 import CatMascot from "@/components/brand/CatMascot";
 import { AmenityList } from "@/components/cafes/AmenityTag";
 import VisitPanel from "@/components/cafes/VisitPanel";
+import SaveCafeButtons from "@/components/cafes/SaveCafeButtons";
+import ShareCafeButton from "@/components/cafes/ShareCafeButton";
+import ListingVerification from "@/components/cafes/ListingVerification";
 import { AREAS, PRICES, VIBES, findCafe } from "@/data/cafes";
 
 export const Route = createRoute({
@@ -75,6 +78,10 @@ function CafeDetailPage() {
                     </span>
                   ))}
                 </div>
+                <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                  <SaveCafeButtons cafe={cafe} variant="panel" />
+                  <ShareCafeButton cafe={cafe} variant="panel" />
+                </div>
               </div>
               <div className="relative hidden w-[110px] shrink-0 sm:block">
                 <div className="animate-blob absolute inset-0 bg-butter/60" style={{ borderRadius: "50% 50% 46% 54% / 46% 54% 46% 54%" }} aria-hidden="true" />
@@ -112,6 +119,8 @@ function CafeDetailPage() {
               <MapPin className="h-4 w-4" /> See it on the map
             </Link>
           </section>
+
+          <ListingVerification cafe={cafe} />
 
           <section className="overflow-hidden rounded-[24px] border border-cocoa/10 bg-cocoa p-4 text-paper sm:p-5">
             <p className="flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-[0.16em] text-butter">

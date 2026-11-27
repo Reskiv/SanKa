@@ -1,16 +1,20 @@
 import { Route as rootRoute } from "./__root";
 import { createRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ArrowUpRight, BookOpen, Coffee, RotateCcw, Stamp, Star } from "lucide-react";
+import { ArrowUpRight, BookOpen, Coffee, Heart, MapPin, ShieldCheck, Star, Stamp } from "lucide-react";
 import CatMascot from "@/components/brand/CatMascot";
 import AvatarPicker from "@/components/passport/AvatarPicker";
 import JournalTab from "@/components/journal/JournalTab";
 import Photo from "@/components/common/Photo";
 import PhotoViewer from "@/components/common/PhotoViewer";
+import DataPrivacyDialog from "@/components/passport/DataPrivacyDialog";
+import SavedCafes from "@/components/passport/SavedCafes";
+import SaveStatus from "@/components/passport/SaveStatus";
 import { formatEntryDate, usePassport } from "@/lib/passport";
 import { CAFES } from "@/data/cafes";
 
 const VIEWS = ["calendar", "scrapbook", "timeline"];
+const TABS = ["passport", "favorites", "want", "coffee"];
 
 export const Route = createRoute({
   getParentRoute: () => rootRoute,
@@ -31,12 +35,15 @@ export const Route = createRoute({
 function PassportPage() {
   const search = Route.useSearch();
   const navigate = useNavigate();
-  const { passport, ready, create, reset, setAvatar, addCoffee, updateCoffee, deleteCoffee } = usePassport();
+  const {
+    passport, ready, lastSavedAt, create, setAvatar, addCoffee, updateCoffee, deleteCoffee,
+    toggleFavorite, toggleWantToVisit,
+  } = usePassport();
   const [name, setName] = useState("");
-  const [confirmReset, setConfirmReset] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
   const [viewer, setViewer] = useState({ photos: [], index: null });
 
-  const tab = search.tab === "coffee" ? "coffee" : "passport";
+  const tab = TABS.includes(search.tab) ? search.tab : "passport";
   const view = VIEWS.includes(search.view) ? search.view : "scrapbook";
 
   const visited = useMemo(
@@ -131,23 +138,41 @@ function PassportPage() {
                       </div>
                     ))}
                   </div>
+
+                  <SaveStatus lastSavedAt={lastSavedAt} className="mt-2.5 justify-center sm:justify-start" />
                 </div>
               </div>
 
-              <div role="group" aria-label="Passport section" className="mt-4 flex rounded-full border border-cocoa/10 bg-cream/80 p-1">
+              <div role="group" aria-label="Passport section" className="mt-4 grid grid-cols-2 gap-1 rounded-[26px] border border-cocoa/10 bg-cream/80 p-1 sm:flex sm:rounded-full">
                 <button
                   type="button"
                   onClick={() => setTab("passport")}
                   aria-pressed={tab === "passport"}
-                  className={`tab-pill flex-1 justify-center ${tab === "passport" ? "tab-pill-active" : ""}`}
+                  className={`tab-pill justify-center sm:flex-1 ${tab === "passport" ? "tab-pill-active" : ""}`}
                 >
                   <BookOpen className="h-4 w-4" strokeWidth={2.2} aria-hidden="true" /> Passport
                 </button>
                 <button
                   type="button"
+                  onClick={() => setTab("favorites")}
+                  aria-pressed={tab === "favorites"}
+                  className={`tab-pill justify-center sm:flex-1 ${tab === "favorites" ? "tab-pill-active" : ""}`}
+                >
+                  <Heart className="h-4 w-4" strokeWidth={2.2} aria-hidden="true" /> Favorites
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setTab("want")}
+                  aria-pressed={tab === "want"}
+                  className={`tab-pill justify-center sm:flex-1 ${tab === "want" ? "tab-pill-active" : ""}`}
+                >
+                  <MapPin className="h-4 w-4" strokeWidth={2.2} aria-hidden="true" /> Want to visit
+                </button>
+                <button
+                  type="button"
                   onClick={() => setTab("coffee")}
                   aria-pressed={tab === "coffee"}
-                  className={`tab-pill flex-1 justify-center ${tab === "coffee" ? "tab-pill-active" : ""}`}
+                  className={`tab-pill justify-center sm:flex-1 ${tab === "coffee" ? "tab-pill-active" : ""}`}
                 >
                   <Coffee className="h-4 w-4" strokeWidth={2.2} aria-hidden="true" /> Coffee
                 </button>
@@ -164,6 +189,10 @@ function PassportPage() {
                   updateCoffee={updateCoffee}
                   deleteCoffee={deleteCoffee}
                 />
+              ) : tab === "favorites" ? (
+                <SavedCafes kind="favorites" passport={passport} onRemove={toggleFavorite} />
+              ) : tab === "want" ? (
+                <SavedCafes kind="wantToVisit" passport={passport} onRemove={toggleWantToVisit} />
               ) : (
                 <div className="grid gap-5 lg:grid-cols-[1.35fr_1fr] lg:items-start">
                   <div className="space-y-5">
@@ -205,17 +234,30 @@ function PassportPage() {
                     </section>
 
                     <section className="card p-4 sm:p-5" aria-labelledby="notes-heading">
-                      <h2 id="notes-heading" className="font-heading text-[19px] font-bold text-cocoa">
-                        Café notes
-                      </h2>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <h2 id="notes-heading" className="font-heading text-[19px] font-bold text-cocoa">
+                          Tasting notes
+                        </h2>
+                        <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-cocoa/40">{notes.length}</span>
+                      </div>
+
                       {notes.length === 0 ? (
-                        <p className="mt-3 text-[14px] text-cocoa/60">Notes you leave on cafés collect here, photos and all.</p>
+                        <div className="mt-4 rounded-[18px] border border-dashed border-cocoa/20 bg-cream/40 p-6 text-center">
+                          <p className="text-[14px] text-cocoa/65">No notes yet. Rate a café you have visited.</p>
+                          <Link to="/cafes" className="btn btn-soft mt-3 !py-2 text-[13px]">
+                            Pick a café
+                          </Link>
+                        </div>
                       ) : (
-                        <ul className="mt-3 space-y-3">
+                        <ul className="mt-3 space-y-2">
                           {notes.map(({ cafe, review }) => (
                             <li key={cafe.id} className="rounded-[18px] border border-cocoa/10 bg-cream/50 p-3">
-                              <div className="flex items-center justify-between gap-2">
-                                <Link to="/cafes/$cafeId" params={{ cafeId: cafe.id }} className="font-heading text-[15px] font-bold text-cocoa">
+                              <div className="flex items-baseline justify-between gap-2">
+                                <Link
+                                  to="/cafes/$cafeId"
+                                  params={{ cafeId: cafe.id }}
+                                  className="font-heading text-[15px] font-bold text-cocoa hover:text-lagoon-deep"
+                                >
                                   {cafe.name}
                                 </Link>
                                 <span className="flex items-center gap-0.5" aria-label={`${review.rating} out of 5`}>
@@ -268,28 +310,11 @@ function PassportPage() {
                     <div className="card p-5">
                       <p className="eyebrow">This device only</p>
                       <p className="mt-2 text-[13px] leading-relaxed text-cocoa/60">
-                        Stamps, journal entries and photos are saved in this browser. Resetting clears everything.
+                        Stamps, favorites, journal entries and photos are saved in this browser. Back it up or delete it whenever you like.
                       </p>
-                      {confirmReset ? (
-                        <div className="mt-3 flex gap-2">
-                          <button
-                            type="button"
-                            onClick={async () => {
-                              if (await reset()) setConfirmReset(false);
-                            }}
-                            className="btn btn-danger flex-1 !py-2 text-[12.5px]"
-                          >
-                            Yes, reset
-                          </button>
-                          <button type="button" onClick={() => setConfirmReset(false)} className="btn btn-ghost !py-2 text-[12.5px]">
-                            Cancel
-                          </button>
-                        </div>
-                      ) : (
-                        <button type="button" onClick={() => setConfirmReset(true)} className="btn btn-ghost mt-3 w-full !py-2 text-[12.5px]">
-                          <RotateCcw className="h-3.5 w-3.5" /> Reset passport
-                        </button>
-                      )}
+                      <button type="button" onClick={() => setPrivacyOpen(true)} className="btn btn-ghost mt-3 w-full !py-2 text-[12.5px]">
+                        <ShieldCheck className="h-3.5 w-3.5" /> Data &amp; privacy
+                      </button>
                     </div>
                   </aside>
                 </div>
@@ -304,6 +329,8 @@ function PassportPage() {
         startIndex={viewer.index ?? -1}
         onClose={() => setViewer({ photos: [], index: null })}
       />
+
+      <DataPrivacyDialog open={privacyOpen} onOpenChange={setPrivacyOpen} />
     </div>
   );
 }

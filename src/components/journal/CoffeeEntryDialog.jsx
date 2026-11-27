@@ -2,21 +2,23 @@ import { useEffect, useState } from "react";
 import { Star, Trash2 } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import PhotoPicker from "@/components/common/PhotoPicker";
-import { todayKey } from "@/lib/passport";
+import { CURRENCIES, DEFAULT_CURRENCY, todayKey } from "@/lib/passport";
 
-const blank = () => ({ drink: "", cafe: "", date: todayKey(), rating: 0, notes: "", photos: [] });
+const blank = (currency = DEFAULT_CURRENCY) => ({ drink: "", cafe: "", date: todayKey(), rating: 0, notes: "", photos: [], price: "", currency });
 
-export default function CoffeeEntryDialog({ open, onOpenChange, entry, defaultDate, onSave, onDelete }) {
-  const [form, setForm] = useState(blank);
+export default function CoffeeEntryDialog({ open, onOpenChange, entry, defaultDate, defaultCurrency = DEFAULT_CURRENCY, onSave, onDelete }) {
+  const [form, setForm] = useState(() => blank(defaultCurrency));
   const [error, setError] = useState("");
   const [confirmDelete, setConfirmDelete] = useState(false);
 
   useEffect(() => {
     if (!open) return;
-    setForm(entry ? { ...blank(), ...entry } : { ...blank(), date: defaultDate || todayKey() });
+    setForm(entry
+      ? { ...blank(defaultCurrency), ...entry, price: Number.isFinite(Number(entry.price)) && Number(entry.price) > 0 ? String(entry.price) : "" }
+      : { ...blank(defaultCurrency), date: defaultDate || todayKey() });
     setError("");
     setConfirmDelete(false);
-  }, [open, entry]);
+  }, [open, entry, defaultDate, defaultCurrency]);
 
   const set = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
 
@@ -26,6 +28,11 @@ export default function CoffeeEntryDialog({ open, onOpenChange, entry, defaultDa
       setError("Give this coffee a name first.");
       return;
     }
+    const price = form.price === "" || form.price === null ? null : Number(form.price);
+    if (price !== null && (!Number.isFinite(price) || price < 0 || price > 1000000)) {
+      setError("Add a price of 0 or more, or leave it blank.");
+      return;
+    }
     const saved = onSave({
       drink: form.drink.trim(),
       cafe: form.cafe.trim(),
@@ -33,6 +40,8 @@ export default function CoffeeEntryDialog({ open, onOpenChange, entry, defaultDa
       rating: Number(form.rating) || 0,
       notes: form.notes.trim(),
       photos: form.photos || [],
+      price: price === null ? null : Math.round(price * 100) / 100,
+      currency: form.currency || DEFAULT_CURRENCY,
     });
     if (saved !== false) onOpenChange(false);
   };
@@ -93,6 +102,45 @@ export default function CoffeeEntryDialog({ open, onOpenChange, entry, defaultDa
             </div>
           </div>
 
+          <div className="grid gap-4 sm:grid-cols-[1fr_1.2fr]">
+            <div>
+              <label htmlFor="coffee-price" className="field-label">
+                Price <span className="normal-case tracking-normal text-cocoa/40">optional</span>
+              </label>
+              <input
+                id="coffee-price"
+                type="number"
+                inputMode="decimal"
+                min="0"
+                step="0.01"
+                value={form.price}
+                onChange={(event) => set("price", event.target.value)}
+                placeholder="180"
+                className="field mt-1.5"
+              />
+            </div>
+            <div>
+              <label htmlFor="coffee-currency" className="field-label">
+                Currency
+              </label>
+              <select
+                id="coffee-currency"
+                value={form.currency}
+                onChange={(event) => set("currency", event.target.value)}
+                className="field mt-1.5"
+              >
+                {CURRENCIES.map((currency) => (
+                  <option key={currency.code} value={currency.code}>
+                    {currency.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <p className="!mt-1.5 text-[12px] leading-relaxed text-cocoa/50">
+            Only used to total your own spending. Totals are never converted between currencies.
+          </p>
+
           <fieldset>
             <legend className="field-label">Rating</legend>
             <div className="mt-1.5 flex items-center gap-1">
@@ -130,6 +178,9 @@ export default function CoffeeEntryDialog({ open, onOpenChange, entry, defaultDa
               placeholder="Nutty, a little sweet. Window seat, quiet at 3pm."
               className="field mt-1.5 resize-none"
             />
+            <p className="mt-1.5 text-[12px] leading-relaxed text-cocoa/50">
+              New to this? Note whether it tasted sweet, bitter or sour, whether it felt strong or light, and how the room felt.
+            </p>
           </div>
 
           <PhotoPicker value={form.photos || []} onChange={(photos) => set("photos", photos)} label="Photos" />

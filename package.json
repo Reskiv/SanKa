@@ -1,9 +1,9 @@
 {
-  "name": "luckys-atlas",
-  "version": "2.1.0",
+  "name": "sanka",
+  "version": "2.2.0",
   "private": true,
   "type": "module",
-  "description": "SanKa caf\u00e9 discovery and local passport, migrated into Lucky\u2019s Atlas.",
+  "description": "SanKa caf\u00e9 discovery, local passport and coffee journal.",
   "scripts": {
     "dev": "vite",
     "start": "vite",
@@ -12,7 +12,8 @@
     "preview": "vite preview --host 127.0.0.1 --port 8080",
     "test": "node --test tests/unit/*.test.js",
     "check": "npm test && npm run build",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "scan:secrets": "node scripts/scan-secrets.mjs"
   },
   "engines": {
     "node": ">=22.12.0"

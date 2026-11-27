@@ -1,6 +1,6 @@
 import { Camera, Coffee, Star } from "lucide-react";
 import Photo from "@/components/common/Photo";
-import { formatEntryDate } from "@/lib/passport";
+import { formatEntryDate, formatMoney } from "@/lib/passport";
 
 function Stars({ value }) {
   if (!value) return null;
@@ -49,9 +49,16 @@ export default function CoffeeScrapbook({ entries, onEdit, highlightId }) {
                 </div>
                 <p className="text-[12.5px] font-semibold text-cocoa/50">{entry.cafe || "Home brew"}</p>
                 {entry.notes && <p className="mt-2 line-clamp-3 text-[13.5px] leading-relaxed text-cocoa/70">{entry.notes}</p>}
-                <p className="mt-3 inline-flex items-center gap-1 rounded-full bg-cream px-2 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-cocoa/55">
-                  {formatEntryDate(entry.date, { day: "numeric", month: "short", year: "numeric" })}
-                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-cream px-2 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.12em] text-cocoa/55">
+                    {formatEntryDate(entry.date, { day: "numeric", month: "short", year: "numeric" })}
+                  </span>
+                  {entry.price > 0 && (
+                    <span className="inline-flex items-center rounded-full bg-butter/70 px-2 py-0.5 text-[10.5px] font-bold text-cocoa-deep">
+                      {formatMoney(entry.price, entry.currency)}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 

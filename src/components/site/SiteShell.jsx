@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { StarBurst } from "@/components/brand/Doodles";
 import BottomNav from "@/components/site/BottomNav";
+import ConnectionNotice from "@/components/site/ConnectionNotice";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -8,6 +9,12 @@ const NAV = [
   { to: "/map", label: "Map" },
   { to: "/passport", label: "Passport" },
   { to: "/about", label: "About" },
+];
+
+const LEGAL = [
+  { to: "/privacy", label: "Privacy" },
+  { to: "/terms", label: "Terms" },
+  { to: "/data-declaration", label: "Data declaration" },
 ];
 
 export function SiteHeader() {
@@ -98,6 +105,18 @@ export function SiteFooter() {
         <p>© {new Date().getFullYear()} SanKa. Café listings are sample data for now.</p>
         <p>Map tiles © Esri · © OpenStreetMap contributors</p>
       </div>
+      <div className="wrap border-t border-cocoa/10 py-4">
+        <nav aria-label="Policies" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12.5px] text-cocoa/50">
+          {LEGAL.map((item, index) => (
+            <span key={item.to} className="inline-flex items-center gap-2">
+              {index > 0 && <span aria-hidden="true" className="text-cocoa/25">·</span>}
+              <Link to={item.to} className="transition-colors hover:text-cocoa">
+                {item.label}
+              </Link>
+            </span>
+          ))}
+        </nav>
+      </div>
     </footer>
   );
 }
@@ -106,6 +125,7 @@ export default function SiteShell({ children }) {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
+      <ConnectionNotice />
       <main id="main-content" className="flex-1 pb-[92px] md:pb-0">
         {children}
       </main>

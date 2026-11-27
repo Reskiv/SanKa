@@ -6,6 +6,7 @@ import CoffeeCalendar from "@/components/journal/CoffeeCalendar";
 import CoffeeScrapbook from "@/components/journal/CoffeeScrapbook";
 import CoffeeTimeline from "@/components/journal/CoffeeTimeline";
 import CoffeeEntryDialog from "@/components/journal/CoffeeEntryDialog";
+import SpendingSummary from "@/components/journal/SpendingSummary";
 import { sortCoffees } from "@/lib/passport";
 
 const VIEWS = [
@@ -53,6 +54,8 @@ export default function JournalTab({ passport, view = "scrapbook", onViewChange,
           <Plus className="h-4 w-4" strokeWidth={2.4} /> Add coffee
         </button>
       </div>
+
+      <SpendingSummary coffees={entries} className="mt-4" />
 
       <div role="group" aria-label="Journal view" className="mt-4 flex w-full rounded-full border border-cocoa/10 bg-cream/80 p-1 sm:inline-flex sm:w-auto">
         {VIEWS.map((item) => {
@@ -102,6 +105,7 @@ export default function JournalTab({ passport, view = "scrapbook", onViewChange,
         onOpenChange={(open) => setDialog((prev) => ({ ...prev, open }))}
         entry={dialog.entry}
         defaultDate={dialog.date}
+        defaultCurrency={passport.currency}
         onSave={handleSave}
         onDelete={(id) => {
           if (!deleteCoffee(id)) return false;

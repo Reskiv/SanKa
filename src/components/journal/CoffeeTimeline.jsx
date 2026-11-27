@@ -1,6 +1,6 @@
 import { Coffee, Star } from "lucide-react";
 import Photo from "@/components/common/Photo";
-import { formatEntryDate } from "@/lib/passport";
+import { formatEntryDate, formatMoney } from "@/lib/passport";
 
 function monthLabel(date) {
   if (!date) return "Undated";
@@ -46,7 +46,10 @@ export default function CoffeeTimeline({ entries, onEdit }) {
                     {formatEntryDate(entry.date, { day: "numeric", month: "short" })}
                   </span>
                 </span>
-                <span className="block text-[12.5px] font-semibold text-cocoa/50">{entry.cafe || "Home brew"}</span>
+                <span className="block text-[12.5px] font-semibold text-cocoa/50">
+                  {entry.cafe || "Home brew"}
+                  {entry.price > 0 && <span className="text-cocoa/40"> · {formatMoney(entry.price, entry.currency)}</span>}
+                </span>
                 {entry.notes && <span className="mt-1 line-clamp-2 block text-[13px] leading-snug text-cocoa/65">{entry.notes}</span>}
                 {entry.rating > 0 && (
                   <span className="mt-1 flex items-center gap-0.5" aria-label={`${entry.rating} out of 5`}>

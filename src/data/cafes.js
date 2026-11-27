@@ -37,6 +37,17 @@ export const VIBES = {
 
 export const PRICES = { $: "Budget", $$: "Moderate", $$$: "Special occasion" };
 
+/* Every café below is a written sample for the prototype. Nothing here has been
+   checked against a real business, so hours, addresses and directions are
+   placeholders. `listing` records that status for the interface to show. */
+export const LISTING_STATUS = {
+  verified: false,
+  label: "Sample listing",
+  lastChecked: null,
+  source: "Prototype sample, not a real business",
+  note: "Hours, address, phone and directions are placeholders. Check them with the café before travelling.",
+};
+
 export const CAFES = [
   {
     id: "moonbeam-nook",
